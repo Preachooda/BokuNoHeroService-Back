@@ -32,8 +32,8 @@ public abstract class BaseEntityService<E extends BaseEntity> {
 
     public E create(E object) {
         object = beforeCreate(object);
-        if (object.getInitDate() == null)
-            object.setInitDate(new Date());
+        if (object.getCreationDate() == null)
+            object.setCreationDate(new Date());
         return this.getRepository().save(object);
     }
 
