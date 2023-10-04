@@ -8,10 +8,10 @@ import java.util.List;
 
 public abstract class BaseEntityMapper<E extends BaseEntity, D extends BaseDto> {
 
-    @Mapping(source = "initDate", target = "initDate", qualifiedByName = "dateTime")
+    @Mapping(source = "creationDate", target = "creationDate", qualifiedByName = "dateTime")
     public abstract E dtoToEntity(D dto);
 
-    @Mapping(source = "initDate", target = "initDate", qualifiedByName = "dateTime")
+    @Mapping(source = "creationDate", target = "creationDate", qualifiedByName = "dateTime")
     public abstract D entityToDto(E entity);
 
     public abstract List<D> entityListToDtoList(List<E> entityList);

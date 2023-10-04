@@ -1,15 +1,17 @@
 package ru.preachooda.bokunohero.mappers;
 
+import io.micrometer.common.util.StringUtils;
 import org.mapstruct.Mapper;
 import org.mapstruct.Named;
+import ru.preachooda.bokunohero.entity.EnumerationValue;
 import ru.preachooda.bokunohero.utils.BaseUtils;
 
 import java.util.Date;
 
 @Mapper(componentModel = "spring")
-public interface BaseMapper {
+public abstract class BaseMapper {
 
-    default String dateToString(Date date) {
+    public String dateToString(Date date) {
         if (date == null) {
             return null;
         }
@@ -17,7 +19,7 @@ public interface BaseMapper {
     }
 
     @Named("dateTime")
-    default String dateTimeToString(Date date) {
+    public String dateTimeToString(Date date) {
         if (date == null) {
             return null;
         }
@@ -25,7 +27,7 @@ public interface BaseMapper {
     }
 
 
-    default Date stringToDate(String s) {
+    public Date stringToDate(String s) {
         if (s == null || s.isEmpty()) {
             return null;
         }
@@ -33,11 +35,20 @@ public interface BaseMapper {
     }
 
     @Named("dateTime")
-    default Date stringToDateTime(String s) {
+    public Date stringToDateTime(String s) {
         if (s == null || s.isEmpty()) {
             return null;
         }
         return BaseUtils.parseDateTime(s);
+    }
+
+    public EnumerationValue stringToEnumerationValue(String s) {
+        if (StringUtils.isEmpty(s)) {
+            return null;
+        }
+        EnumerationValue ev = new EnumerationValue();
+        ev.setCode(s);
+        return ev;
     }
 
 }

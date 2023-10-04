@@ -11,6 +11,6 @@ public abstract class BaseDto {
 
     private String label;
 
-    private Date initDate;
+    private Date creationDate;
 
 }
