@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @Entity
-@Table(name = "enumerations")
+@Table(name = "enumeration")
 public class Enumeration extends BaseEntity {
 
     @Column(name = "code")
