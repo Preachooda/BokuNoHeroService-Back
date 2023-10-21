@@ -7,8 +7,8 @@ import java.util.TimeZone;
 
 public class BaseUtils {
 
-    public static String DATE_DEFAULT_FORMAT = "yyyy-MM-dd";
-    public static String DATE_TIME_DEFAULT_FORMAT = "yyyy-MM-dd HH:mm:ss";
+    public static String DATE_DEFAULT_FORMAT = "dd-MM-yyyy";
+    public static String DATE_TIME_DEFAULT_FORMAT = "dd-MM-yyyy HH:mm:ss";
 
     public static Long convertToLong(String s) {
         if (s != null && !s.isEmpty()) {
