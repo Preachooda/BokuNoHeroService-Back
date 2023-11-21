@@ -5,10 +5,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import ru.preachooda.bokunohero.dto.UserDto;
 import ru.preachooda.bokunohero.entity.User;
-import ru.preachooda.bokunohero.mappers.BaseEntityMapper;
 import ru.preachooda.bokunohero.mappers.UserMapper;
-import ru.preachooda.bokunohero.services.BaseEntityService;
 import ru.preachooda.bokunohero.services.UserService;
+import ru.preachooda.bokunoherocore.controllers.BaseEntityController;
+import ru.preachooda.bokunoherocore.mappers.BaseEntityMapper;
+import ru.preachooda.bokunoherocore.services.BaseEntityService;
 
 @RestController
 @RequestMapping("/users")

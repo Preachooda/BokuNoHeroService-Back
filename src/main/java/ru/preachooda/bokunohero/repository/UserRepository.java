@@ -2,6 +2,7 @@ package ru.preachooda.bokunohero.repository;
 
 import org.springframework.stereotype.Repository;
 import ru.preachooda.bokunohero.entity.User;
+import ru.preachooda.bokunoherocore.repository.BaseEntityRepository;
 
 import java.util.Optional;
 

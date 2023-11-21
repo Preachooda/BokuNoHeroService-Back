@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import ru.preachooda.bokunoherocore.entity.BaseEntity;
+import ru.preachooda.bokunoherocore.entity.EnumerationValue;
 
 import java.math.BigDecimal;
 import java.util.List;

@@ -5,10 +5,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import ru.preachooda.bokunohero.dto.TicketDto;
 import ru.preachooda.bokunohero.entity.Ticket;
-import ru.preachooda.bokunohero.mappers.BaseEntityMapper;
 import ru.preachooda.bokunohero.mappers.TicketMapper;
-import ru.preachooda.bokunohero.services.BaseEntityService;
 import ru.preachooda.bokunohero.services.TicketService;
+import ru.preachooda.bokunoherocore.controllers.BaseEntityController;
+import ru.preachooda.bokunoherocore.mappers.BaseEntityMapper;
+import ru.preachooda.bokunoherocore.services.BaseEntityService;
 
 @RestController
 @RequestMapping("/tickets")

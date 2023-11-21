@@ -6,6 +6,8 @@ import ru.preachooda.bokunohero.dto.RoleDto;
 import ru.preachooda.bokunohero.dto.UserDto;
 import ru.preachooda.bokunohero.entity.Role;
 import ru.preachooda.bokunohero.entity.User;
+import ru.preachooda.bokunoherocore.mappers.BaseEntityMapper;
+import ru.preachooda.bokunoherocore.mappers.BaseMapper;
 
 @Mapper(
         componentModel = "spring",
