@@ -25,7 +25,7 @@ public class TicketDto extends BaseDto {
 
     private String longitude;
 
-    private List<HeroDto> heroes;
+//    private List<HeroDto> heroes;
 
     private List<EnumerationValueDto> categories;
 

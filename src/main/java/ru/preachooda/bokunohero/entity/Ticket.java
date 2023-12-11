@@ -37,9 +37,9 @@ public class Ticket extends BaseEntity {
     @Column(name = "longitude")
     private BigDecimal longitude;
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinColumn(name = "hero_id", referencedColumnName = "id")
-    private List<Hero> heroes;
+//    @ManyToMany(fetch = FetchType.EAGER)
+//    @JoinColumn(name = "hero_id", referencedColumnName = "id")
+//    private List<Hero> heroes;
 
     @ManyToMany(fetch = FetchType.EAGER)
     private List<EnumerationValue> categories;
