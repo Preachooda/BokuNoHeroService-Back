@@ -4,8 +4,9 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import ru.preachooda.bokunohero.dto.enumeration.ActivityStatus;
+import ru.preachooda.bokunohero.dto.enumeration.TicketCategory;
 import ru.preachooda.bokunoherocore.entity.BaseEntity;
-import ru.preachooda.bokunoherocore.entity.EnumerationValue;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -24,9 +25,8 @@ public class Ticket extends BaseEntity {
     @Column(name = "description")
     private String description;
 
-    @OneToOne
-    @JoinColumn(name = "ticket_status", referencedColumnName="id")
-    private EnumerationValue status;
+    @Column(name = "status")
+    private ActivityStatus status;
 
     @Column(name = "priority")
     private Integer priority;
@@ -41,7 +41,10 @@ public class Ticket extends BaseEntity {
 //    @JoinColumn(name = "hero_id", referencedColumnName = "id")
 //    private List<Hero> heroes;
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    private List<EnumerationValue> categories;
+    @ElementCollection(targetClass = TicketCategory.class)
+    @CollectionTable(name = "ticket_categories", joinColumns = @JoinColumn(name = "ticket_id"))
+    @Enumerated(EnumType.STRING)
+    @Column(name = "ticket_category")
+    private List<TicketCategory> categories;
 
 }

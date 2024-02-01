@@ -4,7 +4,6 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import ru.preachooda.bokunoherocore.dto.BaseDto;
-import ru.preachooda.bokunoherocore.dto.EnumerationValueDto;
 
 import java.util.List;
 
@@ -17,7 +16,7 @@ public class TicketDto extends BaseDto {
 
     private String description;
 
-    private EnumerationValueDto status;
+    private String status;
 
     private Integer priority;
 
@@ -27,6 +26,6 @@ public class TicketDto extends BaseDto {
 
 //    private List<HeroDto> heroes;
 
-    private List<EnumerationValueDto> categories;
+    private List<String> categories;
 
 }
