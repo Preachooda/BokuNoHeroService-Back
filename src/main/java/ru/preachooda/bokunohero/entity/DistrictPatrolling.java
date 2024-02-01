@@ -25,7 +25,10 @@ public class DistrictPatrolling extends BaseEntity {
     private District district;
 
     @ManyToMany(fetch = FetchType.EAGER)
-    @JoinColumn(name = "hero_id", referencedColumnName = "id")
+    @JoinTable(
+            name = "district_patrolling_heroes",
+            joinColumns = @JoinColumn(name = "district_patrolling_id"),
+            inverseJoinColumns = @JoinColumn(name = "hero_id"))
     private List<Hero> heroes;
 
 }
