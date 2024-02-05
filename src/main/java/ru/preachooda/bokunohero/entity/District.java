@@ -1,7 +1,6 @@
 package ru.preachooda.bokunohero.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -14,6 +13,11 @@ import ru.preachooda.bokunoherocore.entity.BaseEntity;
 @Table(name = "district")
 public class District extends BaseEntity {
 
+    @Column(name = "description")
+    private String description;
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "city_id", referencedColumnName = "id")
+    private City city;
 
 }
