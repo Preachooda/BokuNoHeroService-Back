@@ -1,6 +1,7 @@
 package ru.preachooda.bokunohero.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -18,6 +19,7 @@ import java.util.List;
 @Table(name = "ticket")
 public class Ticket extends BaseEntity {
 
+    @NotNull
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;
@@ -26,6 +28,7 @@ public class Ticket extends BaseEntity {
     private String description;
 
     @Column(name = "status")
+    @Enumerated(EnumType.STRING)
     private ActivityStatus status;
 
     @Column(name = "priority")

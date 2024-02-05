@@ -1,6 +1,7 @@
 package ru.preachooda.bokunohero.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -15,9 +16,11 @@ import java.util.List;
 @Table(name = "users")
 public class User extends BaseEntity {
 
+    @NotNull
     @Column(name = "username", unique = true)
     private String username;
 
+    @NotNull
     @Column(name = "password")
     private String password;
 

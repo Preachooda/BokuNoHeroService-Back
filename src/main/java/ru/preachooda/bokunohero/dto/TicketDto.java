@@ -12,7 +12,7 @@ import java.util.List;
 @NoArgsConstructor
 public class TicketDto extends BaseDto {
 
-    private UserDto userDto;
+    private UserDto user;
 
     private String description;
 
