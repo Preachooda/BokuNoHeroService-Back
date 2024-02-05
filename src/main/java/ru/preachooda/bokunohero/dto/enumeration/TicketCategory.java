@@ -5,7 +5,7 @@ public enum TicketCategory {
     FLOODING("Наводнение"),
     EARTHQUAKE("Землетрясение"),
     ROBBERY("Грабеж"),
-    WHIMSY("Причуда"),
+    QUIRK("Причуда"),
     OTHER("Другое");
 
     public final String label;
