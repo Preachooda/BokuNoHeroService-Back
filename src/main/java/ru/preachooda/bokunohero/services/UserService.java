@@ -1,6 +1,8 @@
 package ru.preachooda.bokunohero.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Service;
 import ru.preachooda.bokunohero.entity.User;
 import ru.preachooda.bokunohero.repository.UserRepository;
@@ -19,6 +21,28 @@ public class UserService extends BaseEntityService<User> {
     @Override
     public BaseEntityRepository<User> getRepository() {
         return userRepository;
+    }
+
+    /**
+     * Получение пользователя по имени пользователя
+     * <p>
+     * Нужен для Spring Security
+     *
+     * @return пользователь
+     */
+    public UserDetailsService userDetailsService() {
+        return this::findByUsername;
+    }
+
+    /**
+     * Получение текущего пользователя
+     *
+     * @return текущий пользователь
+     */
+    public User getCurrentUser() {
+        // Получение имени пользователя из контекста Spring Security
+        var username = SecurityContextHolder.getContext().getAuthentication().getName();
+        return findByUsername(username);
     }
 
     @Override

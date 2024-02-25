@@ -1,84 +1,85 @@
-//package ru.preachooda.bokunohero.config;
-//
-//import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.beans.factory.annotation.Configurable;
-//import org.springframework.context.annotation.Bean;
-//import org.springframework.context.annotation.Configuration;
-//import org.springframework.security.authentication.AuthenticationManager;
-//import org.springframework.security.config.BeanIds;
-//import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
-//import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-//import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-//import org.springframework.security.config.http.SessionCreationPolicy;
-//import org.springframework.security.core.userdetails.UserDetailsService;
-//import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-//import org.springframework.security.crypto.password.PasswordEncoder;
-//import org.springframework.security.web.SecurityFilterChain;
-//import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-//import ru.preachooda.bokunohero.security.JwtAuthenticationFilter;
-//
-//import static org.springframework.security.config.Customizer.withDefaults;
-//
-//
-//@EnableWebSecurity
-//@Configuration
-//public class SecurityConfig {
-//
-//    @Autowired
-//    private JwtAuthenticationFilter jwtAuthenticationFilter;
-//
-//    @Autowired
-//    private UserDetailsService userDetailsService;
-//
-////    @Bean(BeanIds.AUTHENTICATION_MANAGER)
-////    @Override
-////    public AuthenticationManager authenticationManagerBean() throws Exception {
-////        return super.authenticationManagerBean();
-////    }
-//
-//
-//    @Bean
-//    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-//        http
-//                .authorizeHttpRequests((authorize) -> authorize
-//                        .anyRequest().authenticated()
-//                )
-//                .csrf((csrf) -> csrf.ignoringRequestMatchers("/token"))
-//                .httpBasic(Customizer.withDefaults())
-//                .oauth2ResourceServer(OAuth2ResourceServerConfigurer::jwt)
-//                .sessionManagement((session) -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-//                .exceptionHandling((exceptions) -> exceptions
-//                        .authenticationEntryPoint(new BearerTokenAuthenticationEntryPoint())
-//                        .accessDeniedHandler(new BearerTokenAccessDeniedHandler())
-//                );
-//        return http.build();
-//    }
-//    }
-//
-////    protected void configure(HttpSecurity httpSecurity) throws Exception {
-////        httpSecurity.csrf().disable().cors().and()
-////                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-////                .and()
-////                .authorizeRequests()
-////                .antMatchers("/auth/**").permitAll()
-////                .antMatchers("/tasks/**", "/tasktimes/**").hasRole("USER")
-////                .antMatchers("/sprints/**", "/teams/**").hasRole("MASTER")
-////                .antMatchers("/projects/**", "employee-absence/**",
-////                        "/users/**", "/roles/**", "/enumerationvalues/**").hasRole("OWNER")
-////                .antMatchers("/swagger", "/auth/*", "/report/*").permitAll()
-////                .anyRequest().authenticated();
-////
-////        httpSecurity.addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
-////
-////
-////    @Override
-////    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-////        auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
-////    }
-////
-////    @Bean
-////    PasswordEncoder passwordEncoder() {
-////        return new BCryptPasswordEncoder();
-////    }
-//
-//}
+package ru.preachooda.bokunohero.config;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.AuthenticationProvider;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
+import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
+import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.cors.CorsConfiguration;
+import ru.preachooda.bokunohero.security.JwtAuthenticationFilter;
+import ru.preachooda.bokunohero.services.UserService;
+
+import java.util.List;
+
+import static org.springframework.security.config.http.SessionCreationPolicy.STATELESS;
+
+
+@EnableWebSecurity
+@EnableMethodSecurity
+@Configuration
+public class SecurityConfig {
+
+    @Autowired
+    private JwtAuthenticationFilter jwtAuthenticationFilter;
+
+    @Autowired
+    private UserService userService;
+
+    @Bean
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        http.csrf(AbstractHttpConfigurer::disable)
+                // Своего рода отключение CORS (разрешение запросов со всех доменов)
+                .cors(cors -> cors.configurationSource(request -> {
+                    var corsConfiguration = new CorsConfiguration();
+                    corsConfiguration.setAllowedOriginPatterns(List.of("*"));
+                    corsConfiguration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+                    corsConfiguration.setAllowedHeaders(List.of("*"));
+                    corsConfiguration.setAllowCredentials(true);
+                    return corsConfiguration;
+                }))
+                // Настройка доступа к конечным точкам
+                .authorizeHttpRequests(request -> request
+                        // Можно указать конкретный путь, * - 1 уровень вложенности, ** - любое количество уровней вложенности
+                        .requestMatchers("/auth/**").permitAll()
+                        .requestMatchers("/swagger-ui/**", "/swagger-resources/*", "/v3/api-docs/**").permitAll()
+                        .requestMatchers("/endpoint", "/admin/**").hasRole("ADMIN")
+                        .requestMatchers("/tickets/**").hasRole("HERO")
+                        .anyRequest().authenticated())
+                .sessionManagement(manager -> manager.sessionCreationPolicy(STATELESS))
+                .authenticationProvider(authenticationProvider())
+                .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
+        return http.build();
+    }
+
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+
+    @Bean
+    public AuthenticationProvider authenticationProvider() {
+        DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
+        authProvider.setUserDetailsService(userService.userDetailsService());
+        authProvider.setPasswordEncoder(passwordEncoder());
+        return authProvider;
+    }
+
+    @Bean
+    public AuthenticationManager authenticationManager(AuthenticationConfiguration config)
+            throws Exception {
+        return config.getAuthenticationManager();
+    }
+
+
+
+}
