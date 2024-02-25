@@ -1,6 +1,7 @@
 package ru.preachooda.bokunohero.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -19,7 +20,7 @@ import java.util.List;
 @Table(name = "ticket")
 public class Ticket extends BaseEntity {
 
-    @NotNull
+//    @NotNull
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;
@@ -29,16 +30,20 @@ public class Ticket extends BaseEntity {
 
     @Column(name = "status")
     @Enumerated(EnumType.STRING)
-    private ActivityStatus status;
+    private ActivityStatus status = ActivityStatus.CREATED;
 
     @Column(name = "priority")
-    private Integer priority;
+    @Min(value = 0, message = "The prioriry mustn't be less than 0")
+    private Integer priority = 0;
 
     @Column(name = "latitude")
     private BigDecimal latitude;
 
     @Column(name = "longitude")
     private BigDecimal longitude;
+
+    @Column(name = "score")
+    private Integer score;
 
 //    @ManyToMany(fetch = FetchType.EAGER)
 //    @JoinColumn(name = "hero_id", referencedColumnName = "id")
@@ -49,5 +54,7 @@ public class Ticket extends BaseEntity {
     @Enumerated(EnumType.STRING)
     @Column(name = "ticket_category")
     private List<TicketCategory> categories;
+
+    // TODO: 20.02.2024 photoPaths 
 
 }

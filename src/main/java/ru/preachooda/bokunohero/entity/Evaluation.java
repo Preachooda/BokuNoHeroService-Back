@@ -10,7 +10,8 @@ import ru.preachooda.bokunohero.entity.composite.TicketHeroKey;
 @Data
 @NoArgsConstructor
 @Entity
-@Table(name = "evaluation")
+@Table(name = "evaluation",
+        uniqueConstraints = { @UniqueConstraint(name = "UniqueTicketHeroKey", columnNames = { "ticket_id", "hero_id" }) })
 public class Evaluation {
 
     @EmbeddedId

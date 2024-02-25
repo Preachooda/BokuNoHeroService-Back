@@ -18,7 +18,8 @@ import java.util.List;
 public class DistrictPatrolling extends BaseEntity {
 
     @Column(name = "status")
-    private ActivityStatus status;
+    @Enumerated(EnumType.STRING)
+    private ActivityStatus status = ActivityStatus.CREATED;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "district_id", referencedColumnName = "id")

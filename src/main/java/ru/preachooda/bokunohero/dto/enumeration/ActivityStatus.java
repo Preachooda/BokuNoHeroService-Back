@@ -4,6 +4,7 @@ public enum ActivityStatus {
 
     CREATED("Создана"),
     IN_WORK("В работе"),
+    EVALUATION("На оценке"),
     FINISHED("Завершена"),
     REJECTED("Отказ");
 

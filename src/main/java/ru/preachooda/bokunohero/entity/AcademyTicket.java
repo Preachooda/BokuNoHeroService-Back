@@ -21,7 +21,8 @@ public class AcademyTicket extends BaseEntity {
     private User user;
 
     @Column(name = "status")
-    private ActivityStatus status;
+    @Enumerated(EnumType.STRING)
+    private ActivityStatus status = ActivityStatus.CREATED;
 
     @Column(name = "firstname")
     private String firstName;
