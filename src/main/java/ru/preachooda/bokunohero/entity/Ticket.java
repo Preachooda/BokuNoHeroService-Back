@@ -2,12 +2,13 @@ package ru.preachooda.bokunohero.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import ru.preachooda.bokunohero.dto.enumeration.ActivityStatus;
 import ru.preachooda.bokunohero.dto.enumeration.TicketCategory;
+import ru.preachooda.bokunohero.dto.enumeration.TicketComplexity;
+import ru.preachooda.bokunohero.dto.enumeration.TicketPriority;
 import ru.preachooda.bokunoherocore.entity.BaseEntity;
 
 import java.math.BigDecimal;
@@ -33,8 +34,12 @@ public class Ticket extends BaseEntity {
     private ActivityStatus status = ActivityStatus.CREATED;
 
     @Column(name = "priority")
-    @Min(value = 0, message = "The prioriry mustn't be less than 0")
-    private Integer priority = 0;
+    @Enumerated(EnumType.STRING)
+    private TicketPriority priority;
+
+    @Column(name = "complexity")
+    @Enumerated(EnumType.STRING)
+    private TicketComplexity ticketComplexity;
 
     @Column(name = "latitude")
     private BigDecimal latitude;
@@ -45,6 +50,17 @@ public class Ticket extends BaseEntity {
     @Column(name = "score")
     private Integer score;
 
+    @ElementCollection(targetClass = String.class, fetch = FetchType.EAGER)
+    @CollectionTable(name = "ticket_photos_paths", joinColumns = @JoinColumn(name = "ticket_id"))
+    @Column(name = "photo_path", nullable = false)
+    private List<String> photosPaths;
+
+    @Column(name = "video_path")
+    private String videoPath;
+
+    @Column(name = "audio_path")
+    private String audioPath;
+
 //    @ManyToMany(fetch = FetchType.EAGER)
 //    @JoinColumn(name = "hero_id", referencedColumnName = "id")
 //    private List<Hero> heroes;
@@ -54,7 +70,5 @@ public class Ticket extends BaseEntity {
     @Enumerated(EnumType.STRING)
     @Column(name = "ticket_category")
     private List<TicketCategory> categories;
-
-    // TODO: 20.02.2024 photoPaths 
 
 }

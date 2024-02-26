@@ -5,6 +5,7 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import ru.preachooda.bokunoherocore.dto.BaseDto;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @EqualsAndHashCode(callSuper = true)
@@ -28,11 +29,17 @@ public class TicketDto extends BaseDto {
 
 //    private List<HeroDto> heroes;
 
+    private List<String> photosCodes = new ArrayList<>();
+
     private String videoCode;
 
-    private String imageCode;
-
     private String audioCode;
+
+    private List<String> photosPaths = new ArrayList<>();
+
+    private String videoPath;
+
+    private String audioPath;
 
     private List<String> categories;
 

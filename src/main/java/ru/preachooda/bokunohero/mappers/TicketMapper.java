@@ -52,7 +52,7 @@ public abstract class TicketMapper extends BaseEntityMapper<Ticket, TicketDto> {
 
             for (TicketMediaFile ticketMediaFile : ticketMediaFileList) {
                 if (ticketMediaFile.getMediaType().equals(TicketMediaType.IMAGE)) {
-                    ticketDto.setImageCode(mediaFileIdToValueMap.get(ticketMediaFile.getTicketMediaKey().getMediaFile()));
+                    ticketDto.getPhotosCodes().add(mediaFileIdToValueMap.get(ticketMediaFile.getTicketMediaKey().getMediaFile()));
                 }
 
                 if (ticketMediaFile.getMediaType().equals(TicketMediaType.VIDEO)) {

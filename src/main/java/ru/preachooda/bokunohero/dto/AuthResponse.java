@@ -10,8 +10,6 @@ import java.util.List;
 @AllArgsConstructor
 @Builder
 public class AuthResponse {
-    private String authenticationToken;
-    private String username;
-    private String fullName;
-    private List<String> roles;
+    private String accessToken;
+    private Long userId;
 }

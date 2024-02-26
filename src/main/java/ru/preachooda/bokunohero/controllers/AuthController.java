@@ -35,13 +35,9 @@ public class AuthController {
     public ResponseEntity<AuthResponse> login(@RequestBody AuthRequest authRequest) {
         String token = authService.login(authRequest);
         User user = userService.findByUsername(authRequest.getUsername());
-        String fullName = user.getLabel();
-        List<String> roles = user.getRoles().stream().map(Role::getCode).collect(Collectors.toList());
         AuthResponse authResponse = AuthResponse.builder()
-                .authenticationToken(token)
-                .username(authRequest.getUsername())
-                .fullName(fullName)
-                .roles(roles)
+                .accessToken(token)
+                .userId(user.getId())
                 .build();
         return ResponseEntity.ok().body(authResponse);
     }

@@ -1,12 +1,14 @@
 package ru.preachooda.bokunohero.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import ru.preachooda.bokunohero.dto.enumeration.ActivityStatus;
 import ru.preachooda.bokunoherocore.entity.BaseEntity;
 
+import java.util.Date;
 import java.util.List;
 
 
@@ -21,9 +23,24 @@ public class DistrictPatrolling extends BaseEntity {
     @Enumerated(EnumType.STRING)
     private ActivityStatus status = ActivityStatus.CREATED;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "district_id", referencedColumnName = "id")
-    private District district;
+    @NotNull
+    @Column(name = "district")
+    private String district;
+
+    @Column(name = "description")
+    private String description;
+
+    @Column(name = "scheduled_start")
+    private Date scheduledStart;
+
+    @Column(name = "scheduled_end")
+    private Date scheduledEnd;
+
+    @Column(name = "actual_start")
+    private Date actualStart;
+
+    @Column(name = "actual_end")
+    private Date actualEnd;
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(

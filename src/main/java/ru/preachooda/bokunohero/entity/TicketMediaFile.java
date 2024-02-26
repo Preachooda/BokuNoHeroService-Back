@@ -17,6 +17,7 @@ public class TicketMediaFile {
     @EmbeddedId
     private TicketMediaKey ticketMediaKey;
 
+    // TODO: 25.02.2024 Внешние ключи с каскадом для удаления
     @NotNull
     @Column(name = "media_type")
     @Enumerated(EnumType.STRING)
