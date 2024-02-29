@@ -27,6 +27,7 @@ public class Hero extends BaseEntity {
     private String quirk;
 
     @Column(name = "quirk_type")
+    @Enumerated(EnumType.STRING)
     private QuirkType quirkType;
 
     @NotNull

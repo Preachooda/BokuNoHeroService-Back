@@ -57,9 +57,10 @@ public class UploadMediaController {
                 ticketMediaKey.setTicketId(idValue);
                 ticketMediaKey.setMediaFile(mediaFile.getId());
                 ticketMediaFile.setTicketMediaKey(ticketMediaKey);
+                // TODO: 25.02.2024 Универсально сохранять
                 if (mediaFile.getType().contains("video")) {
                     ticketMediaFile.setMediaType(TicketMediaType.VIDEO);
-                } else if (mediaFile.getType().contains("audo")) {
+                } else if (mediaFile.getType().contains("audio")) {
                     ticketMediaFile.setMediaType(TicketMediaType.AUDIO);
                 } else if (mediaFile.getType().contains("image")) {
                     ticketMediaFile.setMediaType(TicketMediaType.IMAGE);

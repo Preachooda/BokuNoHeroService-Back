@@ -19,7 +19,8 @@ public class Evaluation {
     private TicketHeroKey ticketHeroKey;
 
     @Column(name = "rate")
-    private Rate rate;
+    @Enumerated(EnumType.ORDINAL)
+    private Rate rate = Rate.NOT_RATED;
 
     @Column(name = "comment")
     private String comment;

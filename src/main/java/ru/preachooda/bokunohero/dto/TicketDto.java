@@ -19,7 +19,9 @@ public class TicketDto extends BaseDto {
 
     private String status;
 
-    private Integer priority = 0;
+    private Integer priority;
+
+    private String ticketComplexity;
 
     private String latitude;
 

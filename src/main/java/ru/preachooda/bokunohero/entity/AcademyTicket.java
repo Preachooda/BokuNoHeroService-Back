@@ -28,7 +28,7 @@ public class AcademyTicket extends BaseEntity {
     private String printedName;
 
     @Column(name = "age")
-    private String age;
+    private Integer age;
 
     @Column(name = "quirk")
     private String quirk;

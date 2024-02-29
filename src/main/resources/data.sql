@@ -20,8 +20,8 @@ begin
     end if;
 
     --  Role SpecialServices
-    IF (NOT EXISTS(SELECT * FROM roles where code = ''SpecialServices'')) THEN
-        INSERT INTO roles VALUES (nextval(''roles_id_seq''), current_date, ''Специальные службы'', ''SpecialServices'')  RETURNING id INTO roleServices;
+    IF (NOT EXISTS(SELECT * FROM roles where code = ''HeroCommittee'')) THEN
+        INSERT INTO roles VALUES (nextval(''roles_id_seq''), current_date, ''Геройский комитет'', ''HeroCommittee'')  RETURNING id INTO roleServices;
     end if;
 
 
@@ -50,7 +50,7 @@ begin
         academyId bigint;
     begin
     IF (NOT EXISTS(SELECT * FROM users where username = ''academy1'')) THEN
-        INSERT INTO users VALUES (nextval(''users_id_seq''), current_date, ''ГК 1'', null, ''12345678'', ''academy1'') RETURNING id INTO academyId;
+        INSERT INTO users VALUES (nextval(''users_id_seq''), current_date, ''ГА 1'', null, ''12345678'', ''academy1'') RETURNING id INTO academyId;
         INSERT INTO users_roles VALUES (academyId, COALESCE(roleAcademy, (SELECT id FROM roles WHERE code = ''HeroAcademy'')));
         end if;
     end;
@@ -59,9 +59,9 @@ begin
     declare
         servicesId bigint;
     begin
-    IF (NOT EXISTS(SELECT * FROM users where username = ''specialServices1'')) THEN
-        INSERT INTO users VALUES (nextval(''users_id_seq''), current_date, ''Спец. сервисы 1'', null, ''12345678'', ''specialServices1'') RETURNING id INTO servicesId;
-        INSERT INTO users_roles VALUES (servicesId, COALESCE(roleServices, (SELECT id FROM roles WHERE code = ''SpecialServices'')));
+    IF (NOT EXISTS(SELECT * FROM users where username = ''committee1'')) THEN
+        INSERT INTO users VALUES (nextval(''users_id_seq''), current_date, ''ГК 1'', null, ''12345678'', ''committee1'') RETURNING id INTO servicesId;
+        INSERT INTO users_roles VALUES (servicesId, COALESCE(roleServices, (SELECT id FROM roles WHERE code = ''HeroCommittee'')));
         end if;
     end;
 end;

@@ -34,12 +34,12 @@ public class Ticket extends BaseEntity {
     private ActivityStatus status = ActivityStatus.CREATED;
 
     @Column(name = "priority")
-    @Enumerated(EnumType.STRING)
-    private TicketPriority priority;
+    @Enumerated(EnumType.ORDINAL)
+    private TicketPriority priority = TicketPriority.ONE;
 
     @Column(name = "complexity")
     @Enumerated(EnumType.STRING)
-    private TicketComplexity ticketComplexity;
+    private TicketComplexity ticketComplexity = TicketComplexity.EASY;
 
     @Column(name = "latitude")
     private BigDecimal latitude;

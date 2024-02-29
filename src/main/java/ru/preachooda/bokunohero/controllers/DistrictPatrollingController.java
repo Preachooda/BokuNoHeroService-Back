@@ -12,7 +12,7 @@ import ru.preachooda.bokunoherocore.mappers.BaseEntityMapper;
 import ru.preachooda.bokunoherocore.services.BaseEntityService;
 
 @RestController
-@RequestMapping("/distric-patrollings")
+@RequestMapping("/district-patrollings")
 public class DistrictPatrollingController extends BaseEntityController<DistrictPatrolling, DistrictPatrollingDto> {
 
     @Autowired
