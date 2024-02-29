@@ -1,6 +1,5 @@
 package ru.preachooda.bokunohero.dto;
 
-import jakarta.persistence.*;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;

@@ -4,13 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.preachooda.bokunohero.entity.Evaluation;
 import ru.preachooda.bokunohero.repository.EvaluationRepository;
-import ru.preachooda.bokunoherocore.entity.BaseEntity;
-import ru.preachooda.bokunoherocore.validator.exceptions.IncorrectDataException;
-import ru.preachooda.bokunoherocore.validator.exceptions.NotFoundException;
 
-import java.util.Date;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class EvaluationService {

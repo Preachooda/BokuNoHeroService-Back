@@ -3,7 +3,6 @@ package ru.preachooda.bokunohero.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.type.TrueFalseConverter;
 import ru.preachooda.bokunohero.dto.enumeration.Rate;
 import ru.preachooda.bokunohero.entity.composite.TicketHeroKey;
 

@@ -9,15 +9,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import ru.preachooda.bokunohero.dto.AuthRequest;
-import ru.preachooda.bokunohero.dto.UserDto;
-import ru.preachooda.bokunohero.entity.Role;
-import ru.preachooda.bokunohero.entity.User;
 import ru.preachooda.bokunohero.repository.RoleRepository;
-import ru.preachooda.bokunohero.repository.UserRepository;
 import ru.preachooda.bokunohero.security.JwtProvider;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Service
 public class AuthService {

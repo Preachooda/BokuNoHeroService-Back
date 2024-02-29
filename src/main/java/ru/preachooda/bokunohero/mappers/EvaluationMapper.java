@@ -1,12 +1,9 @@
 package ru.preachooda.bokunohero.mappers;
 
 import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
 import ru.preachooda.bokunohero.dto.EvaluationDto;
-import ru.preachooda.bokunohero.dto.RoleDto;
 import ru.preachooda.bokunohero.dto.TicketHeroKeyDto;
 import ru.preachooda.bokunohero.entity.Evaluation;
-import ru.preachooda.bokunohero.entity.Role;
 import ru.preachooda.bokunohero.entity.composite.TicketHeroKey;
 import ru.preachooda.bokunoherocore.mappers.BaseMapper;
 

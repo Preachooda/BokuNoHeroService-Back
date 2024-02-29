@@ -7,8 +7,6 @@ import lombok.NoArgsConstructor;
 import ru.preachooda.bokunohero.dto.enumeration.ActivityStatus;
 import ru.preachooda.bokunoherocore.entity.BaseEntity;
 
-import java.util.Date;
-
 @Data
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)

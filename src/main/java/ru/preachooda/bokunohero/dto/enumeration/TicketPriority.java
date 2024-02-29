@@ -1,7 +1,6 @@
 package ru.preachooda.bokunohero.dto.enumeration;
 
 public enum TicketPriority {
-
     ONE(1),
     TWO(2),
     THREE(3),

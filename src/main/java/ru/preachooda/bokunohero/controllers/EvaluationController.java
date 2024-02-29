@@ -3,21 +3,13 @@ package ru.preachooda.bokunohero.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.FieldError;
-import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.server.ResponseStatusException;
 import ru.preachooda.bokunohero.dto.EvaluationDto;
 import ru.preachooda.bokunohero.entity.Evaluation;
 import ru.preachooda.bokunohero.mappers.EvaluationMapper;
 import ru.preachooda.bokunohero.services.EvaluationService;
-import ru.preachooda.bokunoherocore.utils.BaseUtils;
-import ru.preachooda.bokunoherocore.validator.exceptions.IncorrectDataException;
-import ru.preachooda.bokunoherocore.validator.exceptions.NotFoundException;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @RestController
 @RequestMapping("/evaluations")

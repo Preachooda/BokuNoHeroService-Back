@@ -17,7 +17,6 @@ import ru.preachooda.bokunohero.services.TicketMediaFileService;
 import ru.preachooda.bokunoherocore.mappers.BaseEntityMapper;
 import ru.preachooda.bokunoherocore.mappers.BaseMapper;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;

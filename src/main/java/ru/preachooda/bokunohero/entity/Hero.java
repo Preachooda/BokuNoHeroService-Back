@@ -10,8 +10,6 @@ import lombok.NoArgsConstructor;
 import ru.preachooda.bokunohero.dto.enumeration.QuirkType;
 import ru.preachooda.bokunoherocore.entity.BaseEntity;
 
-import java.math.BigDecimal;
-
 @Data
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)

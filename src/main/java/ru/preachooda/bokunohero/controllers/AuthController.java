@@ -9,12 +9,8 @@ import org.springframework.web.bind.annotation.RestController;
 import ru.preachooda.bokunohero.dto.AuthRequest;
 import ru.preachooda.bokunohero.dto.AuthResponse;
 import ru.preachooda.bokunohero.entity.User;
-import ru.preachooda.bokunohero.entity.Role;
 import ru.preachooda.bokunohero.services.AuthService;
 import ru.preachooda.bokunohero.services.UserService;
-
-import java.util.List;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/auth")
