@@ -1,8 +1,6 @@
 package ru.preachooda.bokunohero.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -15,6 +13,10 @@ import ru.preachooda.bokunoherocore.entity.BaseEntity;
 @Entity
 @Table(name = "academy")
 public class Academy extends BaseEntity {
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "head_id", referencedColumnName = "id")
+    private User head;
 
     @NotNull
     @Column(name = "address")

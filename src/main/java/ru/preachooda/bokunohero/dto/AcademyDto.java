@@ -10,6 +10,8 @@ import ru.preachooda.bokunoherocore.dto.BaseDto;
 @NoArgsConstructor
 public class AcademyDto extends BaseDto {
 
+    private Long headId;
+
     private String address;
 
     private String motto;
