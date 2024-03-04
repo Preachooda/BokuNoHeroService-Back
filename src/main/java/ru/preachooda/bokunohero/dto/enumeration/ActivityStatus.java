@@ -3,9 +3,10 @@ package ru.preachooda.bokunohero.dto.enumeration;
 public enum ActivityStatus {
 
     CREATED("Создана"),
+    ASSIGNED("Назначена"),
     IN_WORK("В работе"),
     EVALUATION("На оценке"),
-    FINISHED("Завершена"),
+    COMPLETED("Завершена"),
     REJECTED("Отказ");
 
     private final String label;

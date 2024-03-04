@@ -1,6 +1,9 @@
 package ru.preachooda.bokunohero.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import ru.preachooda.bokunohero.dto.DistrictPatrollingDto;
@@ -29,6 +32,11 @@ public class DistrictPatrollingController extends BaseEntityController<DistrictP
     @Override
     public BaseEntityMapper<DistrictPatrolling, DistrictPatrollingDto> getMapper() {
         return districtPatrollingMapper;
+    }
+
+    @GetMapping("/active/{heroId}")
+    public ResponseEntity<DistrictPatrollingDto> findActiveByHeroId(@PathVariable("heroId") Long heroId) {
+        return ResponseEntity.ok().body(getMapper().entityToDto(districtPatrollingService.findActiveByHeroId(heroId)));
     }
 
 }

@@ -5,7 +5,7 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-import ru.preachooda.bokunohero.dto.enumeration.ActivityStatus;
+import ru.preachooda.bokunohero.dto.enumeration.PatrolStatus;
 import ru.preachooda.bokunoherocore.entity.BaseEntity;
 
 import java.util.Date;
@@ -21,7 +21,7 @@ public class DistrictPatrolling extends BaseEntity {
 
     @Column(name = "status")
     @Enumerated(EnumType.STRING)
-    private ActivityStatus status = ActivityStatus.CREATED;
+    private PatrolStatus status = PatrolStatus.PENDING;
 
     @NotNull
     @Column(name = "district")
