@@ -6,17 +6,20 @@ import org.mapstruct.MappingTarget;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.CollectionUtils;
 import ru.preachooda.bokunohero.dto.TicketDto;
+import ru.preachooda.bokunohero.dto.enumeration.Rate;
 import ru.preachooda.bokunohero.dto.enumeration.TicketMediaType;
-import ru.preachooda.bokunohero.entity.MediaFile;
-import ru.preachooda.bokunohero.entity.Ticket;
-import ru.preachooda.bokunohero.entity.TicketMediaFile;
-import ru.preachooda.bokunohero.entity.User;
+import ru.preachooda.bokunohero.dto.enumeration.TicketPriority;
+import ru.preachooda.bokunohero.entity.*;
+import ru.preachooda.bokunohero.entity.composite.TicketHeroKey;
 import ru.preachooda.bokunohero.entity.composite.TicketMediaKey;
+import ru.preachooda.bokunohero.services.EvaluationService;
+import ru.preachooda.bokunohero.services.HeroService;
 import ru.preachooda.bokunohero.services.MediaFileService;
 import ru.preachooda.bokunohero.services.TicketMediaFileService;
 import ru.preachooda.bokunoherocore.mappers.BaseEntityMapper;
 import ru.preachooda.bokunoherocore.mappers.BaseMapper;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -32,6 +35,31 @@ public abstract class TicketMapper extends BaseEntityMapper<Ticket, TicketDto> {
 
     @Autowired
     private TicketMediaFileService ticketMediaFileService;
+
+    @Autowired
+    private EvaluationService evaluationService;
+
+    @Autowired
+    private HeroService heroService;
+
+    @Autowired
+    private HeroMapper heroMapper;
+
+    TicketPriority mapPriority(Integer value) {
+        return TicketPriority.getPriorityByValue(value);
+    }
+
+    Integer mapPriority(TicketPriority value) {
+        return value.priority;
+    }
+
+    Rate mapRate(Integer value) {
+        return Rate.getRateByValue(value);
+    }
+
+    Integer mapPriority(Rate value) {
+        return value.rate;
+    }
 
     @AfterMapping
     public void ticketToTicketDto(Ticket ticket, @MappingTarget TicketDto ticketDto) {
@@ -63,6 +91,25 @@ public abstract class TicketMapper extends BaseEntityMapper<Ticket, TicketDto> {
                 }
             }
         }
+
+        // Устанавливаем героев и оценки
+        List<Evaluation> evaluationList = evaluationService.findByTicketId(ticket.getId());
+        if (!CollectionUtils.isEmpty(evaluationList)) {
+            List<Long> heroIdList = evaluationList.stream().map(Evaluation::getTicketHeroKey).map(TicketHeroKey::getHeroId).collect(Collectors.toList());
+            // Оценки
+            Map<Long, Integer> heroRateMap = new HashMap<>();
+            evaluationList.stream()
+                    .filter(ev -> ev.getTicketHeroKey() != null && ev.getTicketHeroKey().getHeroId() != null)
+                    .forEach(evaluation -> {
+                        heroRateMap.put(evaluation.getTicketHeroKey().getHeroId(),
+                                        evaluation.getRate().rate);
+                    });
+            // Герои
+            List<Hero> heroList = heroService.findAllByIds(heroIdList);
+            if (!CollectionUtils.isEmpty(heroList)) {
+                ticketDto.setHeroes(heroMapper.entityListToDtoList(heroList));
+            }
+        }
     }
 
     @AfterMapping
@@ -71,6 +118,18 @@ public abstract class TicketMapper extends BaseEntityMapper<Ticket, TicketDto> {
         User user = new User();
         user.setId(ticketDto.getUserId());
         ticket.setUser(user);
+    }
+
+    @AfterMapping
+    public void ticketListToTicketDtoList(@MappingTarget List<TicketDto> ticketDtoList) {
+        ticketDtoList.forEach(t -> {
+            t.setVideoCode(null);
+            t.setVideoPath(null);
+            t.setAudioCode(null);
+            t.setAudioPath(null);
+            t.setPhotosCodes(null);
+            t.setPhotosPaths(null);
+        });
     }
 
 }

@@ -1,5 +1,6 @@
 package ru.preachooda.bokunohero.dto;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -7,7 +8,9 @@ import ru.preachooda.bokunoherocore.dto.BaseDto;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 @EqualsAndHashCode(callSuper = true)
 @Data
 @NoArgsConstructor
@@ -27,9 +30,11 @@ public class TicketDto extends BaseDto {
 
     private String longitude;
 
-    private Integer score;
+    private Integer rate;
 
-//    private List<HeroDto> heroes;
+    private List<HeroDto> heroes;
+
+    private Map<Long, Integer> heroRate;
 
     private List<String> photosCodes = new ArrayList<>();
 
