@@ -30,6 +30,10 @@ public class EvaluationService {
         return (List) evaluationRepository.findAll();
     }
 
+    public List<Evaluation> findByTicketId(Long ticketId) {
+        return evaluationRepository.findByTicketHeroKeyTicketId(ticketId);
+    }
+
     public Evaluation create(Evaluation object) {
         object = this.beforeCreate(object);
 
