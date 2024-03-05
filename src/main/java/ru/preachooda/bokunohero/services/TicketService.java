@@ -41,14 +41,14 @@ public class TicketService extends BaseEntityService<Ticket> {
         if (heroId == null) {
             throw new IncorrectDataException("Для поиска активной заявки по герою не передан его идентификатор");
         }
-        List<Ticket> ticketList = ticketRepository.findAllByHeroIdAndStatus(heroId, ActivityStatus.IN_WORK.name());
+        List<Ticket> ticketList = ticketRepository.findAllByHeroIdAndStatus(heroId, ActivityStatus.IN_WORK);
 
         if (ticketList.size() > 1) {
             Hero hero = heroService.find(heroId);
             throw new IncorrectDataException("По герою " + hero.getLabel() + " найдено несколько активных заявок");
         }
 
-        return ticketList.get(0);
+        return !ticketList.isEmpty() ? ticketList.get(0) : null;
     }
 
 }
