@@ -6,6 +6,7 @@ declare
     roleServices bigint;
 
     heroUserId bigint;
+    heroUserSpecialServicesId bigint;
     heroAcademyHeadId bigint;
 
     password varchar := ''$2a$12$8JQu3kZwMXbcO/TWaLAGx.gwJjuSBIJ0D8R38akaxnJWw2ObcQkEK'';
@@ -44,6 +45,16 @@ begin
     IF (NOT EXISTS(SELECT * FROM users where username = ''hero1'')) THEN
         INSERT INTO users VALUES (nextval(''users_id_seq''), current_date, ''Герой 1'', null, password, ''hero1'') RETURNING id INTO heroUserId;
         INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
+    else
+        SELECT u.id into heroUserId FROM users u where u.username = ''hero1'';
+    end if;
+
+    -- User specialServices1
+    IF (NOT EXISTS(SELECT * FROM users where username = ''heroSpecialServicesId1'')) THEN
+        INSERT INTO users VALUES (nextval(''users_id_seq''), current_date, ''Спец. сервисы 1'', null, password, ''heroSpecialServicesId1'') RETURNING id INTO heroUserSpecialServicesId;
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
+    else
+        SELECT u.id into heroUserSpecialServicesId FROM users u where u.username = ''heroSpecialServicesId1'';
     end if;
 
     -- User academyHead1
@@ -52,13 +63,13 @@ begin
         INSERT INTO users_roles VALUES (heroAcademyHeadId, COALESCE(roleAcademy, (SELECT id FROM roles WHERE code = ''HeroAcademyHead'')));
     end if;
 
-    -- User specialServices1
+    -- User committeeHeadId1
     declare
-        servicesId bigint;
+        committeeHeadId bigint;
     begin
     IF (NOT EXISTS(SELECT * FROM users where username = ''committeeHead1'')) THEN
-        INSERT INTO users VALUES (nextval(''users_id_seq''), current_date, ''ГК 1'', null, password, ''committeeHead1'') RETURNING id INTO servicesId;
-        INSERT INTO users_roles VALUES (servicesId, COALESCE(roleServices, (SELECT id FROM roles WHERE code = ''HeroCommitteeHead'')));
+        INSERT INTO users VALUES (nextval(''users_id_seq''), current_date, ''ГК 1'', null, password, ''committeeHead1'') RETURNING id INTO committeeHeadId;
+        INSERT INTO users_roles VALUES (committeeHeadId, COALESCE(roleServices, (SELECT id FROM roles WHERE code = ''HeroCommitteeHead'')));
         end if;
     end;
 
@@ -69,6 +80,16 @@ begin
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Герой 1'' and user_id = heroUserId)) THEN
         INSERT INTO hero(id, creation_date, label, quirk, quirk_type, skill_by_quirk, ranking_position, strength, speed, technique, intelligence, cooperation, user_id)
         VALUES (nextval(''hero_id_seq''), current_date, ''Герой 1'', ''Причуда'', ''REINFORCEMENT'', ''SS'', 1, 5, 5, 5, 5, 5, heroUserId) RETURNING id INTO heroId;
+        end if;
+    end;
+
+    -- Hero Спец. сервисы 1
+    declare
+        heroSpecialServicesId bigint;
+    begin
+    IF (NOT EXISTS(SELECT * FROM hero where label = ''Спец. сервисы 1'' and user_id = heroUserSpecialServicesId)) THEN
+        INSERT INTO hero(id, creation_date, label, quirk, quirk_type, skill_by_quirk, ranking_position, strength, speed, technique, intelligence, cooperation, user_id)
+        VALUES (nextval(''hero_id_seq''), current_date, ''Спец. сервисы 1'', ''Причуда'', ''SUPPORT'', ''SS'', 1, 5, 5, 5, 5, 5, heroUserSpecialServicesId) RETURNING id INTO heroSpecialServicesId;
         end if;
     end;
 
