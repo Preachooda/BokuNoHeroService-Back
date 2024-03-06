@@ -36,7 +36,7 @@ public class AuthService {
         try {
             authenticate = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authRequest.getUsername(), authRequest.getPassword()));
         } catch (AuthenticationException authenticationException) {
-            return "";
+            return authenticationException.getMessage();
         }
 
         assert authenticate != null;
