@@ -5,11 +5,13 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import ru.preachooda.bokunohero.dto.HeroDto;
 import ru.preachooda.bokunohero.dto.enumeration.*;
 import ru.preachooda.bokunoherocore.entity.BaseEntity;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Map;
 
 @Data
 @NoArgsConstructor
@@ -70,5 +72,11 @@ public class Ticket extends BaseEntity {
     @Enumerated(EnumType.STRING)
     @Column(name = "ticket_category")
     private List<TicketCategory> categories;
+
+    @Transient
+    private List<HeroDto> heroes;
+
+    @Transient
+    private Map<Long, Integer> heroRate;
 
 }

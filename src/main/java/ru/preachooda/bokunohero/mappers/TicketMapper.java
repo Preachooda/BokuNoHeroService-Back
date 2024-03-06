@@ -112,7 +112,6 @@ public abstract class TicketMapper extends BaseEntityMapper<Ticket, TicketDto> {
         }
     }
 
-    // TODO: 06.03.2024 Сохранение героев при отправке заявки
     @AfterMapping
     public void ticketDtoToTicket(TicketDto ticketDto, @MappingTarget Ticket ticket) {
         // Устанавливаем юзера

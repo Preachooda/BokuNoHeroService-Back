@@ -17,7 +17,11 @@ public class EvaluationService {
     @Autowired
     private EvaluationRepository evaluationRepository;
 
-//    public Evaluation find(Long id) throws IncorrectDataException, NotFoundException {
+    public EvaluationRepository getRepository() {
+        return evaluationRepository;
+    }
+
+    //    public Evaluation find(Long id) throws IncorrectDataException, NotFoundException {
 //        if (id == null) {
 //            throw new IncorrectDataException("Не передан идентификатор объекта");
 //        } else {
