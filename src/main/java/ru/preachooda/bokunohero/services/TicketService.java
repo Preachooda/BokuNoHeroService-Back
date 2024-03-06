@@ -77,7 +77,7 @@ public class TicketService extends BaseEntityService<Ticket> {
         if (heroId == null) {
             throw new IncorrectDataException("Для поиска активной заявки по герою не передан его идентификатор");
         }
-        List<Ticket> ticketList = ticketRepository.findAllByHeroIdAndStatus(heroId, ActivityStatus.IN_WORK);
+        List<Ticket> ticketList = ticketRepository.findAllByHeroIdAndStatusIn(heroId, List.of(ActivityStatus.ASSIGNED, ActivityStatus.IN_WORK));
 
         if (ticketList.size() > 1) {
             Hero hero = heroService.find(heroId);

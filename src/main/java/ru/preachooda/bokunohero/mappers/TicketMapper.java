@@ -66,31 +66,31 @@ public abstract class TicketMapper extends BaseEntityMapper<Ticket, TicketDto> {
         ticketDto.setUserId(ticket.getUser().getId());
 
         // Устанвливаем медиа-файлы
-        List<TicketMediaFile> ticketMediaFileList = ticketMediaFileService.findByTicketId(ticket.getId());
-        if (!CollectionUtils.isEmpty(ticketMediaFileList)) {
-            Map<Long, String> mediaFileIdToValueMap =
-                    mediaFileService.findAllById(
-                            ticketMediaFileList
-                                    .stream()
-                                    .map(TicketMediaFile::getTicketMediaKey)
-                                    .map(TicketMediaKey::getMediaFile)
-                                    .collect(Collectors.toList())
-                    ).stream().collect(Collectors.toMap(MediaFile::getId, MediaFile::getData));
-
-            for (TicketMediaFile ticketMediaFile : ticketMediaFileList) {
-                if (ticketMediaFile.getMediaType().equals(TicketMediaType.IMAGE)) {
-                    ticketDto.getPhotosCodes().add(mediaFileIdToValueMap.get(ticketMediaFile.getTicketMediaKey().getMediaFile()));
-                }
-
-                if (ticketMediaFile.getMediaType().equals(TicketMediaType.VIDEO)) {
-                    ticketDto.setVideoCode(mediaFileIdToValueMap.get(ticketMediaFile.getTicketMediaKey().getMediaFile()));
-                }
-
-                if (ticketMediaFile.getMediaType().equals(TicketMediaType.AUDIO)) {
-                    ticketDto.setAudioCode(mediaFileIdToValueMap.get(ticketMediaFile.getTicketMediaKey().getMediaFile()));
-                }
-            }
-        }
+//        List<TicketMediaFile> ticketMediaFileList = ticketMediaFileService.findByTicketId(ticket.getId());
+//        if (!CollectionUtils.isEmpty(ticketMediaFileList)) {
+//            Map<Long, String> mediaFileIdToValueMap =
+//                    mediaFileService.findAllById(
+//                            ticketMediaFileList
+//                                    .stream()
+//                                    .map(TicketMediaFile::getTicketMediaKey)
+//                                    .map(TicketMediaKey::getMediaFile)
+//                                    .collect(Collectors.toList())
+//                    ).stream().collect(Collectors.toMap(MediaFile::getId, MediaFile::getData));
+//
+//            for (TicketMediaFile ticketMediaFile : ticketMediaFileList) {
+//                if (ticketMediaFile.getMediaType().equals(TicketMediaType.IMAGE)) {
+//                    ticketDto.getPhotosCodes().add(mediaFileIdToValueMap.get(ticketMediaFile.getTicketMediaKey().getMediaFile()));
+//                }
+//
+//                if (ticketMediaFile.getMediaType().equals(TicketMediaType.VIDEO)) {
+//                    ticketDto.setVideoCode(mediaFileIdToValueMap.get(ticketMediaFile.getTicketMediaKey().getMediaFile()));
+//                }
+//
+//                if (ticketMediaFile.getMediaType().equals(TicketMediaType.AUDIO)) {
+//                    ticketDto.setAudioCode(mediaFileIdToValueMap.get(ticketMediaFile.getTicketMediaKey().getMediaFile()));
+//                }
+//            }
+//        }
 
         // Устанавливаем героев и оценки
         List<Evaluation> evaluationList = evaluationService.findByTicketId(ticket.getId());
@@ -120,16 +120,16 @@ public abstract class TicketMapper extends BaseEntityMapper<Ticket, TicketDto> {
         ticket.setUser(user);
     }
 
-    @AfterMapping
-    public void ticketListToTicketDtoList(@MappingTarget List<TicketDto> ticketDtoList) {
-        ticketDtoList.forEach(t -> {
-            t.setVideoCode(null);
-            t.setVideoPath(null);
-            t.setAudioCode(null);
-            t.setAudioPath(null);
-            t.setPhotosCodes(null);
-            t.setPhotosPaths(null);
-        });
-    }
+//    @AfterMapping
+//    public void ticketListToTicketDtoList(@MappingTarget List<TicketDto> ticketDtoList) {
+//        ticketDtoList.forEach(t -> {
+//            t.setVideoCode(null);
+//            t.setVideoPath(null);
+//            t.setAudioCode(null);
+//            t.setAudioPath(null);
+//            t.setPhotosCodes(null);
+//            t.setPhotosPaths(null);
+//        });
+//    }
 
 }

@@ -107,7 +107,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1000'')) THEN
         INSERT INTO users VALUES (1000, current_date, ''Пользователь-герой 1000'', null, password, ''userHero1000'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Юки Хатсуме'')) THEN
@@ -117,7 +117,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1001'')) THEN
         INSERT INTO users VALUES (1001, current_date, ''Пользователь-герой 1001'', null, password, ''userHero1001'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Рикидо Сато'')) THEN
@@ -127,7 +127,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1002'')) THEN
         INSERT INTO users VALUES (1002, current_date, ''Пользователь-герой 1002'', null, password, ''userHero1002'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Шинко Тодороки'')) THEN
@@ -137,7 +137,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1003'')) THEN
         INSERT INTO users VALUES (1003, current_date, ''Пользователь-герой 1003'', null, password, ''userHero1003'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Рёй Мидория'')) THEN
@@ -147,7 +147,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1004'')) THEN
         INSERT INTO users VALUES (1004, current_date, ''Пользователь-герой 1004'', null, password, ''userHero1004'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Хагаши Кирисаки'')) THEN
@@ -157,7 +157,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1005'')) THEN
         INSERT INTO users VALUES (1005, current_date, ''Пользователь-герой 1005'', null, password, ''userHero1005'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Мидзуки Имай'')) THEN
@@ -167,7 +167,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1006'')) THEN
         INSERT INTO users VALUES (1006, current_date, ''Пользователь-герой 1006'', null, password, ''userHero1006'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Кёсукэ Тодороки'')) THEN
@@ -177,7 +177,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1007'')) THEN
         INSERT INTO users VALUES (1007, current_date, ''Пользователь-герой 1007'', null, password, ''userHero1007'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Юто Хирока'')) THEN
@@ -187,7 +187,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1008'')) THEN
         INSERT INTO users VALUES (1008, current_date, ''Пользователь-герой 1008'', null, password, ''userHero1008'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Сакура Хатсумэ'')) THEN
@@ -197,7 +197,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1009'')) THEN
         INSERT INTO users VALUES (1009, current_date, ''Пользователь-герой 1009'', null, password, ''userHero1009'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Сатору Итидзука'')) THEN
@@ -207,7 +207,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1010'')) THEN
         INSERT INTO users VALUES (1010, current_date, ''Пользователь-герой 1010'', null, password, ''userHero1010'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Эйда Тэнсё'')) THEN
@@ -217,7 +217,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1011'')) THEN
         INSERT INTO users VALUES (1011, current_date, ''Пользователь-герой 1011'', null, password, ''userHero1011'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Юга Аояма'')) THEN
@@ -227,7 +227,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1013'')) THEN
         INSERT INTO users VALUES (1013, current_date, ''Пользователь-герой 1013'', null, password, ''userHero1013'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Кайо Мидория'')) THEN
@@ -237,7 +237,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1014'')) THEN
         INSERT INTO users VALUES (1014, current_date, ''Пользователь-герой 1014'', null, password, ''userHero1014'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Мэй Хатсумэ'')) THEN
@@ -247,7 +247,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1015'')) THEN
         INSERT INTO users VALUES (1015, current_date, ''Пользователь-герой 1015'', null, password, ''userHero1015'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Иппо Масука'')) THEN
@@ -257,7 +257,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1016'')) THEN
         INSERT INTO users VALUES (1016, current_date, ''Пользователь-герой 1016'', null, password, ''userHero1016'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Санэй Ёрозуя'')) THEN
@@ -267,7 +267,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1017'')) THEN
         INSERT INTO users VALUES (1017, current_date, ''Пользователь-герой 1017'', null, password, ''userHero1017'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Судзи Кирию'')) THEN
@@ -277,7 +277,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1018'')) THEN
         INSERT INTO users VALUES (1018, current_date, ''Пользователь-герой 1018'', null, password, ''userHero1018'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Моё Кугимия'')) THEN
@@ -287,7 +287,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1019'')) THEN
         INSERT INTO users VALUES (1019, current_date, ''Пользователь-герой 1019'', null, password, ''userHero1019'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Шинку Тодороки'')) THEN
@@ -297,7 +297,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1020'')) THEN
         INSERT INTO users VALUES (1020, current_date, ''Пользователь-герой 1020'', null, password, ''userHero1020'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Сора Хагакура'')) THEN
@@ -307,7 +307,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1021'')) THEN
         INSERT INTO users VALUES (1021, current_date, ''Пользователь-герой 1021'', null, password, ''userHero1021'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Хэйдзи Хатсумэ'')) THEN
@@ -317,7 +317,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1022'')) THEN
         INSERT INTO users VALUES (1022, current_date, ''Пользователь-герой 1022'', null, password, ''userHero1022'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Шинку Тодорока'')) THEN
@@ -327,7 +327,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1023'')) THEN
         INSERT INTO users VALUES (1023, current_date, ''Пользователь-герой 1023'', null, password, ''userHero1023'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Ёро Зиро'')) THEN
@@ -337,7 +337,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1024'')) THEN
         INSERT INTO users VALUES (1024, current_date, ''Пользователь-герой 1024'', null, password, ''userHero1024'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Сэки Дзиро'')) THEN
@@ -347,7 +347,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1025'')) THEN
         INSERT INTO users VALUES (1025, current_date, ''Пользователь-герой 1025'', null, password, ''userHero1025'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Ринко Судзуки'')) THEN
@@ -357,7 +357,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1026'')) THEN
         INSERT INTO users VALUES (1026, current_date, ''Пользователь-герой 1026'', null, password, ''userHero1026'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Очако Урарака'')) THEN
@@ -367,7 +367,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1027'')) THEN
         INSERT INTO users VALUES (1027, current_date, ''Пользователь-герой 1027'', null, password, ''userHero1027'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Минасси Хитошэ'')) THEN
@@ -377,7 +377,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1028'')) THEN
         INSERT INTO users VALUES (1028, current_date, ''Пользователь-герой 1028'', null, password, ''userHero1028'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Хирако Хосики'')) THEN
@@ -387,7 +387,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1029'')) THEN
         INSERT INTO users VALUES (1029, current_date, ''Пользователь-герой 1029'', null, password, ''userHero1029'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Юки Омура'')) THEN
@@ -397,7 +397,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1030'')) THEN
         INSERT INTO users VALUES (1030, current_date, ''Пользователь-герой 1030'', null, password, ''userHero1030'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Тору Хагакурэ'')) THEN
@@ -407,7 +407,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1031'')) THEN
         INSERT INTO users VALUES (1031, current_date, ''Пользователь-герой 1031'', null, password, ''userHero1031'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Такуми Хатсумэ'')) THEN
@@ -417,7 +417,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1032'')) THEN
         INSERT INTO users VALUES (1032, current_date, ''Пользователь-герой 1032'', null, password, ''userHero1032'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Юки Хатсумю'')) THEN
@@ -427,7 +427,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1033'')) THEN
         INSERT INTO users VALUES (1033, current_date, ''Пользователь-герой 1033'', null, password, ''userHero1033'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Кэнко Тодороки'')) THEN
@@ -437,7 +437,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1034'')) THEN
         INSERT INTO users VALUES (1034, current_date, ''Пользователь-герой 1034'', null, password, ''userHero1034'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Масару Бакуго'')) THEN
@@ -447,7 +447,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1035'')) THEN
         INSERT INTO users VALUES (1035, current_date, ''Пользователь-герой 1035'', null, password, ''userHero1035'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Мицуки Идзуми'')) THEN
@@ -457,7 +457,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1036'')) THEN
         INSERT INTO users VALUES (1036, current_date, ''Пользователь-герой 1036'', null, password, ''userHero1036'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Ёро Мидория'')) THEN
@@ -467,7 +467,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1037'')) THEN
         INSERT INTO users VALUES (1037, current_date, ''Пользователь-герой 1037'', null, password, ''userHero1037'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Мисато Ида'')) THEN
@@ -477,7 +477,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1038'')) THEN
         INSERT INTO users VALUES (1038, current_date, ''Пользователь-герой 1038'', null, password, ''userHero1038'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Рё Сано'')) THEN
@@ -487,7 +487,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1039'')) THEN
         INSERT INTO users VALUES (1039, current_date, ''Пользователь-герой 1039'', null, password, ''userHero1039'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Найто Мидория'')) THEN
@@ -497,7 +497,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1040'')) THEN
         INSERT INTO users VALUES (1040, current_date, ''Пользователь-герой 1040'', null, password, ''userHero1040'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Ёки Тодороке'')) THEN
@@ -507,7 +507,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1041'')) THEN
         INSERT INTO users VALUES (1041, current_date, ''Пользователь-герой 1041'', null, password, ''userHero1041'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Дзиро Масаши'')) THEN
@@ -517,7 +517,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1042'')) THEN
         INSERT INTO users VALUES (1042, current_date, ''Пользователь-герой 1042'', null, password, ''userHero1042'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Кацуки Бакуго'')) THEN
@@ -527,7 +527,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1043'')) THEN
         INSERT INTO users VALUES (1043, current_date, ''Пользователь-герой 1043'', null, password, ''userHero1043'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Сакура Хагакурэ'')) THEN
@@ -537,7 +537,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1044'')) THEN
         INSERT INTO users VALUES (1044, current_date, ''Пользователь-герой 1044'', null, password, ''userHero1044'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Юки Кагэяма'')) THEN
@@ -547,7 +547,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1045'')) THEN
         INSERT INTO users VALUES (1045, current_date, ''Пользователь-герой 1045'', null, password, ''userHero1045'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Хаято Асуко'')) THEN
@@ -557,7 +557,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1046'')) THEN
         INSERT INTO users VALUES (1046, current_date, ''Пользователь-герой 1046'', null, password, ''userHero1046'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Хагакурэ Тору'')) THEN
@@ -567,7 +567,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1047'')) THEN
         INSERT INTO users VALUES (1047, current_date, ''Пользователь-герой 1047'', null, password, ''userHero1047'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Хана Сирумэ'')) THEN
@@ -577,7 +577,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1048'')) THEN
         INSERT INTO users VALUES (1048, current_date, ''Пользователь-герой 1048'', null, password, ''userHero1048'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Шинсукэ Хагакурэ'')) THEN
@@ -587,7 +587,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1049'')) THEN
         INSERT INTO users VALUES (1049, current_date, ''Пользователь-герой 1049'', null, password, ''userHero1049'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Ёко Асуко'')) THEN
@@ -597,7 +597,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1050'')) THEN
         INSERT INTO users VALUES (1050, current_date, ''Пользователь-герой 1050'', null, password, ''userHero1050'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Сен Кайбара'')) THEN
@@ -607,7 +607,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1051'')) THEN
         INSERT INTO users VALUES (1051, current_date, ''Пользователь-герой 1051'', null, password, ''userHero1051'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Ринко Мидория'')) THEN
@@ -617,7 +617,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1052'')) THEN
         INSERT INTO users VALUES (1052, current_date, ''Пользователь-герой 1052'', null, password, ''userHero1052'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Сора Хагакуре'')) THEN
@@ -627,7 +627,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1053'')) THEN
         INSERT INTO users VALUES (1053, current_date, ''Пользователь-герой 1053'', null, password, ''userHero1053'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Акито Масаи'')) THEN
@@ -637,7 +637,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1054'')) THEN
         INSERT INTO users VALUES (1054, current_date, ''Пользователь-герой 1054'', null, password, ''userHero1054'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Рин Сато'')) THEN
@@ -647,7 +647,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1055'')) THEN
         INSERT INTO users VALUES (1055, current_date, ''Пользователь-герой 1055'', null, password, ''userHero1055'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Момо Яойорозу'')) THEN
@@ -657,7 +657,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1056'')) THEN
         INSERT INTO users VALUES (1056, current_date, ''Пользователь-герой 1056'', null, password, ''userHero1056'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Акира Асуко'')) THEN
@@ -667,7 +667,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1057'')) THEN
         INSERT INTO users VALUES (1057, current_date, ''Пользователь-герой 1057'', null, password, ''userHero1057'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Тору Монома'')) THEN
@@ -677,7 +677,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1058'')) THEN
         INSERT INTO users VALUES (1058, current_date, ''Пользователь-герой 1058'', null, password, ''userHero1058'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Киёми Хатсумэ'')) THEN
@@ -687,7 +687,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1059'')) THEN
         INSERT INTO users VALUES (1059, current_date, ''Пользователь-герой 1059'', null, password, ''userHero1059'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Мина Ашидо'')) THEN
@@ -697,7 +697,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1060'')) THEN
         INSERT INTO users VALUES (1060, current_date, ''Пользователь-герой 1060'', null, password, ''userHero1060'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Шото Тодороки'')) THEN
@@ -707,7 +707,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1061'')) THEN
         INSERT INTO users VALUES (1061, current_date, ''Пользователь-герой 1061'', null, password, ''userHero1061'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Юки Хатсума'')) THEN
@@ -717,7 +717,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1062'')) THEN
         INSERT INTO users VALUES (1062, current_date, ''Пользователь-герой 1062'', null, password, ''userHero1062'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Макото Тодорока'')) THEN
@@ -727,7 +727,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1063'')) THEN
         INSERT INTO users VALUES (1063, current_date, ''Пользователь-герой 1063'', null, password, ''userHero1063'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Изуку Мидория'')) THEN
@@ -737,7 +737,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1064'')) THEN
         INSERT INTO users VALUES (1064, current_date, ''Пользователь-герой 1064'', null, password, ''userHero1064'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Сора Ида'')) THEN
@@ -747,7 +747,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1065'')) THEN
         INSERT INTO users VALUES (1065, current_date, ''Пользователь-герой 1065'', null, password, ''userHero1065'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Томоё Хатсуме'')) THEN
@@ -757,7 +757,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1066'')) THEN
         INSERT INTO users VALUES (1066, current_date, ''Пользователь-герой 1066'', null, password, ''userHero1066'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Кейен Асуки'')) THEN
@@ -767,7 +767,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1067'')) THEN
         INSERT INTO users VALUES (1067, current_date, ''Пользователь-герой 1067'', null, password, ''userHero1067'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Хиро Ямада'')) THEN
@@ -777,7 +777,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1068'')) THEN
         INSERT INTO users VALUES (1068, current_date, ''Пользователь-герой 1068'', null, password, ''userHero1068'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Синсей Номура'')) THEN
@@ -787,7 +787,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1069'')) THEN
         INSERT INTO users VALUES (1069, current_date, ''Пользователь-герой 1069'', null, password, ''userHero1069'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Хаято Асука'')) THEN
@@ -797,7 +797,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1070'')) THEN
         INSERT INTO users VALUES (1070, current_date, ''Пользователь-герой 1070'', null, password, ''userHero1070'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Дени Хаидо'')) THEN
@@ -807,7 +807,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1071'')) THEN
         INSERT INTO users VALUES (1071, current_date, ''Пользователь-герой 1071'', null, password, ''userHero1071'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Рейджи Мидория'')) THEN
@@ -817,7 +817,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1072'')) THEN
         INSERT INTO users VALUES (1072, current_date, ''Пользователь-герой 1072'', null, password, ''userHero1072'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Токоями Фумикаге'')) THEN
@@ -827,7 +827,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1073'')) THEN
         INSERT INTO users VALUES (1073, current_date, ''Пользователь-герой 1073'', null, password, ''userHero1073'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Кендзи Танеба'')) THEN
@@ -837,7 +837,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1074'')) THEN
         INSERT INTO users VALUES (1074, current_date, ''Пользователь-герой 1074'', null, password, ''userHero1074'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Рикуо Мидзукэ'')) THEN
@@ -847,7 +847,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1075'')) THEN
         INSERT INTO users VALUES (1075, current_date, ''Пользователь-герой 1075'', null, password, ''userHero1075'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Ицуки Кото'')) THEN
@@ -857,7 +857,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1076'')) THEN
         INSERT INTO users VALUES (1076, current_date, ''Пользователь-герой 1076'', null, password, ''userHero1076'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Теня Ида'')) THEN
@@ -867,7 +867,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1077'')) THEN
         INSERT INTO users VALUES (1077, current_date, ''Пользователь-герой 1077'', null, password, ''userHero1077'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Изуми Тору'')) THEN
@@ -877,7 +877,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1078'')) THEN
         INSERT INTO users VALUES (1078, current_date, ''Пользователь-герой 1078'', null, password, ''userHero1078'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Сакура Андо'')) THEN
@@ -887,7 +887,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1079'')) THEN
         INSERT INTO users VALUES (1079, current_date, ''Пользователь-герой 1079'', null, password, ''userHero1079'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Тсуя Асуи'')) THEN
@@ -897,7 +897,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1080'')) THEN
         INSERT INTO users VALUES (1080, current_date, ''Пользователь-герой 1080'', null, password, ''userHero1080'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Химико Сёто'')) THEN
@@ -907,7 +907,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1081'')) THEN
         INSERT INTO users VALUES (1081, current_date, ''Пользователь-герой 1081'', null, password, ''userHero1081'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Макото Тодороке'')) THEN
@@ -917,7 +917,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1082'')) THEN
         INSERT INTO users VALUES (1082, current_date, ''Пользователь-герой 1082'', null, password, ''userHero1082'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Кимико Кагэяма'')) THEN
@@ -927,7 +927,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1083'')) THEN
         INSERT INTO users VALUES (1083, current_date, ''Пользователь-герой 1083'', null, password, ''userHero1083'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Сюкэй Мурока'')) THEN
@@ -937,7 +937,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1084'')) THEN
         INSERT INTO users VALUES (1084, current_date, ''Пользователь-герой 1084'', null, password, ''userHero1084'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Ёсукэ Мидория'')) THEN
@@ -947,7 +947,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1085'')) THEN
         INSERT INTO users VALUES (1085, current_date, ''Пользователь-герой 1085'', null, password, ''userHero1085'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Мичиро Тодо'')) THEN
@@ -957,7 +957,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1086'')) THEN
         INSERT INTO users VALUES (1086, current_date, ''Пользователь-герой 1086'', null, password, ''userHero1086'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Сайто Тодороки'')) THEN
@@ -967,7 +967,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1087'')) THEN
         INSERT INTO users VALUES (1087, current_date, ''Пользователь-герой 1087'', null, password, ''userHero1087'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Хитоси Шинсо'')) THEN
@@ -977,7 +977,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1088'')) THEN
         INSERT INTO users VALUES (1088, current_date, ''Пользователь-герой 1088'', null, password, ''userHero1088'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Рэй Хагакурэ'')) THEN
@@ -987,7 +987,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1089'')) THEN
         INSERT INTO users VALUES (1089, current_date, ''Пользователь-герой 1089'', null, password, ''userHero1089'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Сайто Хагакурэ'')) THEN
@@ -997,7 +997,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1090'')) THEN
         INSERT INTO users VALUES (1090, current_date, ''Пользователь-герой 1090'', null, password, ''userHero1090'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Нито Монома'')) THEN
@@ -1007,7 +1007,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1091'')) THEN
         INSERT INTO users VALUES (1091, current_date, ''Пользователь-герой 1091'', null, password, ''userHero1091'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Кецубура Тэнко'')) THEN
@@ -1017,7 +1017,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1092'')) THEN
         INSERT INTO users VALUES (1092, current_date, ''Пользователь-герой 1092'', null, password, ''userHero1092'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Року Мина'')) THEN
@@ -1027,7 +1027,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1093'')) THEN
         INSERT INTO users VALUES (1093, current_date, ''Пользователь-герой 1093'', null, password, ''userHero1093'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Юки Ягами'')) THEN
@@ -1037,7 +1037,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1094'')) THEN
         INSERT INTO users VALUES (1094, current_date, ''Пользователь-герой 1094'', null, password, ''userHero1094'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Мицуки Мидория'')) THEN
@@ -1047,7 +1047,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1095'')) THEN
         INSERT INTO users VALUES (1095, current_date, ''Пользователь-герой 1095'', null, password, ''userHero1095'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Каминари Дэнки'')) THEN
@@ -1057,7 +1057,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1096'')) THEN
         INSERT INTO users VALUES (1096, current_date, ''Пользователь-герой 1096'', null, password, ''userHero1096'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Ичиро Имай'')) THEN
@@ -1067,7 +1067,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1097'')) THEN
         INSERT INTO users VALUES (1097, current_date, ''Пользователь-герой 1097'', null, password, ''userHero1097'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Ацуко Тодороки'')) THEN
@@ -1077,7 +1077,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1098'')) THEN
         INSERT INTO users VALUES (1098, current_date, ''Пользователь-герой 1098'', null, password, ''userHero1098'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Томоё Хатсуми'')) THEN
@@ -1087,7 +1087,7 @@ begin
 
     IF (NOT EXISTS(SELECT * FROM users where username = ''userHero1099'')) THEN
         INSERT INTO users VALUES (1099, current_date, ''Пользователь-герой 1099'', null, password, ''userHero1099'') RETURNING id INTO heroUserId;
-        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleUser, (SELECT id FROM roles WHERE code = ''Hero'')));
+        INSERT INTO users_roles VALUES (heroUserId, COALESCE(roleHero, (SELECT id FROM roles WHERE code = ''Hero'')));
         end if;
 
     IF (NOT EXISTS(SELECT * FROM hero where label = ''Мицуки Серо'')) THEN

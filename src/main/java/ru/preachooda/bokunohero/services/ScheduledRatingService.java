@@ -1,10 +1,9 @@
 package ru.preachooda.bokunohero.services;
 
-import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Propagation;
 import org.springframework.util.CollectionUtils;
 import ru.preachooda.bokunohero.dto.enumeration.Rate;
 import ru.preachooda.bokunohero.entity.Evaluation;
@@ -15,6 +14,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
+@ConditionalOnProperty(name="scheduler.enabled", matchIfMissing = true)
 public class ScheduledRatingService {
 
     @Autowired

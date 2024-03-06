@@ -9,9 +9,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import ru.preachooda.bokunohero.dto.AuthRequest;
 import ru.preachooda.bokunohero.dto.AuthResponse;
+import ru.preachooda.bokunohero.entity.Academy;
+import ru.preachooda.bokunohero.entity.Hero;
+import ru.preachooda.bokunohero.entity.Role;
 import ru.preachooda.bokunohero.entity.User;
 import ru.preachooda.bokunohero.security.JwtProvider;
+import ru.preachooda.bokunohero.services.AcademyService;
 import ru.preachooda.bokunohero.services.AuthService;
+import ru.preachooda.bokunohero.services.HeroService;
 import ru.preachooda.bokunohero.services.UserService;
 
 @RestController
@@ -23,6 +28,12 @@ public class AuthController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private HeroService heroService;
+
+    @Autowired
+    private AcademyService academyService;
 
     @Autowired
     private JwtProvider jwtProvider;
@@ -41,9 +52,20 @@ public class AuthController {
         }
 
         User user = userService.findByUsername(authRequest.getUsername());
+
+        // Если роль - Герой
+        Long entityId = null;
+        if (user.getRoles().stream().map(Role::getCode).toList().contains("Hero")) {
+            Hero hero = heroService.findByUser(user);
+            entityId = hero != null ? hero.getId() : null;
+        } else if (user.getRoles().stream().map(Role::getCode).toList().contains("HeroAcademyHead")) {
+            Academy academy = academyService.findByHead(user);
+            entityId = academy != null ? academy.getId() : null;
+        }
         AuthResponse authResponse = AuthResponse.builder()
                 .accessToken(token)
                 .userId(user.getId())
+                .entityId(entityId)
                 .build();
         return ResponseEntity.ok().body(authResponse);
     }

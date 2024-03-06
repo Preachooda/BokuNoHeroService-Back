@@ -11,6 +11,7 @@ import ru.preachooda.bokunohero.dto.enumeration.ActivityStatus;
 import ru.preachooda.bokunohero.dto.enumeration.PatrolStatus;
 import ru.preachooda.bokunohero.entity.DistrictPatrolling;
 import ru.preachooda.bokunohero.entity.Hero;
+import ru.preachooda.bokunohero.entity.User;
 import ru.preachooda.bokunohero.repository.HeroRepository;
 import ru.preachooda.bokunoherocore.repository.BaseEntityRepository;
 import ru.preachooda.bokunoherocore.services.BaseEntityService;
@@ -36,6 +37,8 @@ public class HeroService extends BaseEntityService<Hero> {
     public void init() throws FileNotFoundException {
         model = Model.fromFile(ResourceUtils.getFile("classpath:hero_model.pmml"));
     }
+
+    public Hero findByUser(User user) {return heroRepository.findByUser(user);}
 
     public List<Hero> findAllByIds(List<Long> idList) {
         return heroRepository.findByIdIn(idList);

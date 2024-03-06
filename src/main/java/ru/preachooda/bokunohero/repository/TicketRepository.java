@@ -19,4 +19,8 @@ public interface TicketRepository extends BaseEntityRepository<Ticket> {
              "WHERE e.ticketHeroKey.heroId = :heroId and t.status = :status")
     List<Ticket> findAllByHeroIdAndStatus(@Param("heroId") Long heroId, @Param("status") ActivityStatus status);
 
+    @Query("FROM Ticket t INNER JOIN Evaluation e ON e.ticketHeroKey.ticketId = t.id " +
+            "WHERE e.ticketHeroKey.heroId = :heroId and t.status in (:statusList)")
+    List<Ticket> findAllByHeroIdAndStatusIn(@Param("heroId") Long heroId, @Param("statusList") List<ActivityStatus> statusList);
+
 }

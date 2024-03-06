@@ -36,11 +36,11 @@ public class TicketDto extends BaseDto {
 
     private Map<Long, Integer> heroRate;
 
-    private List<String> photosCodes = new ArrayList<>();
-
-    private String videoCode;
-
-    private String audioCode;
+//    private List<String> photosCodes = new ArrayList<>();
+//
+//    private String videoCode;
+//
+//    private String audioCode;
 
     private List<String> photosPaths = new ArrayList<>();
 

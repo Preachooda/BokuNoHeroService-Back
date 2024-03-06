@@ -10,4 +10,5 @@ import lombok.Data;
 public class AuthResponse {
     private String accessToken;
     private Long userId;
+    private Long entityId;
 }
