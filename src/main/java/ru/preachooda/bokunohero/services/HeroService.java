@@ -2,6 +2,7 @@ package ru.preachooda.bokunohero.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import ru.preachooda.bokunohero.dto.enumeration.ActivityStatus;
 import ru.preachooda.bokunohero.entity.Hero;
 import ru.preachooda.bokunohero.repository.HeroRepository;
 import ru.preachooda.bokunoherocore.repository.BaseEntityRepository;
@@ -22,6 +23,10 @@ public class HeroService extends BaseEntityService<Hero> {
 
     public List<Hero> findAllByIds(List<Long> idList) {
         return heroRepository.findByIdIn(idList);
+    }
+
+    public List<Hero> findFreeHeroes() {
+        return heroRepository.findAvailableHeroes(List.of(ActivityStatus.IN_WORK, ActivityStatus.ASSIGNED, ActivityStatus.EVALUATION));
     }
 
 }
