@@ -39,7 +39,7 @@ public class Hero extends BaseEntity {
     @Enumerated(EnumType.STRING)
     private Tier skillByQuirk = Tier.F;
 
-    @NotNull
+//    @NotNull
     @Column(name = "ranking_position", unique = true)
     private Integer rankingPosition = -1;
 

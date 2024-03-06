@@ -12,4 +12,6 @@ public interface EvaluationRepository extends CrudRepository<Evaluation, TicketH
 
     List<Evaluation> findByTicketHeroKeyTicketId(Long ticketId);
 
+    List<Evaluation> findByTicketHeroKeyHeroId(Long heroId);
+
 }

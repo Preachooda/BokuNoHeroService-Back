@@ -11,7 +11,7 @@ public enum Rate {
     FOUR(4),
     FIVE(5);
 
-    public final Integer rate;
+    private final Integer rate;
 
     private Rate(Integer rate) {
         this.rate = rate;
@@ -24,4 +24,7 @@ public enum Rate {
                 .orElse(null);
     }
 
+    public Integer getRate() {
+        return rate;
+    }
 }

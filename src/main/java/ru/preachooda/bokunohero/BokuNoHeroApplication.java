@@ -6,11 +6,13 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 @SpringBootApplication
 @EnableJpaRepositories(basePackages = {"ru.preachooda.bokunohero", "ru.preachooda.bokunoherocore"})
 @ComponentScan(basePackages = {"ru.preachooda.bokunohero","ru.preachooda.bokunoherocore"})
 @EntityScan(basePackages = {"ru.preachooda.bokunohero","ru.preachooda.bokunoherocore"})
+@EnableScheduling
 public class BokuNoHeroApplication extends SpringBootServletInitializer {
 
     public static void main(String[] args) {

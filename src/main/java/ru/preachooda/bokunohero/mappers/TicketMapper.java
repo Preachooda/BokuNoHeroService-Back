@@ -58,7 +58,7 @@ public abstract class TicketMapper extends BaseEntityMapper<Ticket, TicketDto> {
     }
 
     Integer mapPriority(Rate value) {
-        return value.rate;
+        return value.getRate();
     }
 
     @AfterMapping
@@ -102,7 +102,7 @@ public abstract class TicketMapper extends BaseEntityMapper<Ticket, TicketDto> {
                     .filter(ev -> ev.getTicketHeroKey() != null && ev.getTicketHeroKey().getHeroId() != null)
                     .forEach(evaluation -> {
                         heroRateMap.put(evaluation.getTicketHeroKey().getHeroId(),
-                                        evaluation.getRate().rate);
+                                        evaluation.getRate().getRate());
                     });
             // Герои
             List<Hero> heroList = heroService.findAllByIds(heroIdList);
@@ -112,6 +112,7 @@ public abstract class TicketMapper extends BaseEntityMapper<Ticket, TicketDto> {
         }
     }
 
+    // TODO: 06.03.2024 Сохранение героев при отправке заявки
     @AfterMapping
     public void ticketDtoToTicket(TicketDto ticketDto, @MappingTarget Ticket ticket) {
         // Устанавливаем юзера

@@ -5,7 +5,11 @@ import org.springframework.stereotype.Service;
 import ru.preachooda.bokunohero.entity.Evaluation;
 import ru.preachooda.bokunohero.repository.EvaluationRepository;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 @Service
 public class EvaluationService {
@@ -32,6 +36,30 @@ public class EvaluationService {
 
     public List<Evaluation> findByTicketId(Long ticketId) {
         return evaluationRepository.findByTicketHeroKeyTicketId(ticketId);
+    }
+
+    /**
+     * Метод для поиска мапы ID Героя - Список его оценок по списку идентификаторов героев
+     * @param heroIdList список идентификаторов героев
+     * @return           мапа ID Героя - Список его оценок
+     */
+    public Map<Long, List<Evaluation>> findAllByHeroesId(List<Long> heroIdList) {
+        Map<Long, List<Evaluation>> result = new HashMap<>();
+        for (Long heroId : heroIdList.stream().filter(Objects::nonNull).toList()) {
+            List<Evaluation> evaluationList = evaluationRepository.findByTicketHeroKeyHeroId(heroId);
+            result.put(heroId, evaluationList);
+        }
+
+        return result;
+    }
+
+    /**
+     * Метод для поиска оценок героя по его идентификатору
+     * @param heroId идентификатор героя
+     * @return       список оценок героя
+     */
+    public List<Evaluation> findAllByHeroeId(Long heroId) {
+        return evaluationRepository.findByTicketHeroKeyHeroId(heroId);
     }
 
     public Evaluation create(Evaluation object) {
