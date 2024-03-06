@@ -28,6 +28,6 @@ public class DistrictPatrollingDto extends BaseDto {
 
     private String actualEnd;
 
-    private List<HeroDto> heroes;
+//    private List<HeroDto> heroes;
 
 }

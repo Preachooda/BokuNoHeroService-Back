@@ -23,7 +23,8 @@ public class DistrictPatrollingService extends BaseEntityService<DistrictPatroll
     }
 
     public DistrictPatrolling findActiveByHeroId(Long heroId) {
-        List<DistrictPatrolling> districtPatrollingList = districtPatrollingRepository.findAllByHero(heroId);
+        List<DistrictPatrolling> districtPatrollingList = districtPatrollingRepository
+                .findAllByHero(heroId);
 
         return districtPatrollingList.stream().filter(dp -> Objects.equals(dp.getStatus(), PatrolStatus.STARTED) ||
                 Objects.equals(dp.getStatus(), PatrolStatus.PENDING)).findFirst().orElse(null);

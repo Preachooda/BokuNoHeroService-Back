@@ -6,6 +6,8 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import ru.preachooda.bokunoherocore.dto.BaseDto;
 
+import java.util.List;
+
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Data
 @NoArgsConstructor
@@ -27,5 +29,7 @@ public class HeroDto extends BaseDto {
     private Integer intelligence;
 
     private Integer cooperation;
+
+    private List<DistrictPatrollingDto> districtPatrollingDtoList;
 
 }

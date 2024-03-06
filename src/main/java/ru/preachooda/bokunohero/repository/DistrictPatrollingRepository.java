@@ -12,7 +12,8 @@ import java.util.List;
 public interface DistrictPatrollingRepository extends BaseEntityRepository<DistrictPatrolling> {
 
     @Query(nativeQuery = true, value = "select * from district_patrolling dp inner join " +
-            "district_patrolling_heroes d on dp.id = d.district_patrolling_id where d.hero_id = hero_id")
+            "district_patrolling_heroes d on dp.id = d.district_patrolling_id " +
+            "where d.hero_id = :heroId")
     List<DistrictPatrolling> findAllByHero(@Param("heroId") Long heroId);
 
 }

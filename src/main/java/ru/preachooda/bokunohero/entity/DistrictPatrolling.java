@@ -42,11 +42,11 @@ public class DistrictPatrolling extends BaseEntity {
     @Column(name = "actual_end")
     private Date actualEnd;
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(
-            name = "district_patrolling_heroes",
-            joinColumns = @JoinColumn(name = "district_patrolling_id"),
-            inverseJoinColumns = @JoinColumn(name = "hero_id"))
-    private List<Hero> heroes;
+//    @ManyToMany(fetch = FetchType.EAGER)
+//    @JoinTable(
+//            name = "district_patrolling_heroes",
+//            joinColumns = @JoinColumn(name = "district_patrolling_id"),
+//            inverseJoinColumns = @JoinColumn(name = "hero_id"))
+//    private List<Hero> heroes;
 
 }

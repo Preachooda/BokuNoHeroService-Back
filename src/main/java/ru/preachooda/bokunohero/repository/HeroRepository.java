@@ -17,7 +17,8 @@ public interface HeroRepository extends BaseEntityRepository<Hero> {
     @Query("FROM Hero h " +
                         "LEFT JOIN Evaluation e ON e.ticketHeroKey.heroId = h.id " +
                         "LEFT JOIN Ticket t ON e.ticketHeroKey.ticketId = t.id " +
-                        "WHERE t.status NOT IN (:statusList) OR e.ticketHeroKey.heroId is null")
+                        "LEFT JOIN FETCH h.districtPatrollingList " +
+                        "WHERE (t.status NOT IN (:statusList) OR e.ticketHeroKey.heroId is null)")
     List<Hero> findAvailableHeroes(@Param("statusList") List<ActivityStatus> statusList);
 
 }

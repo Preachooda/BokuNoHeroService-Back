@@ -11,6 +11,8 @@ import ru.preachooda.bokunohero.dto.enumeration.QuirkType;
 import ru.preachooda.bokunohero.dto.enumeration.Tier;
 import ru.preachooda.bokunoherocore.entity.BaseEntity;
 
+import java.util.List;
+
 @Data
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
@@ -70,5 +72,12 @@ public class Hero extends BaseEntity {
     @Max(5)
     @Column(name = "cooperation")
     private Integer cooperation;
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "district_patrolling_heroes",
+            joinColumns = @JoinColumn(name = "hero_id"),
+            inverseJoinColumns = @JoinColumn(name = "district_patrolling_id"))
+    private List<DistrictPatrolling> districtPatrollingList;
 
 }
