@@ -20,6 +20,10 @@ public class HeroDto extends BaseDto {
 
     private String quirkType;
 
+    private String skillByQuirk;
+
+    private Integer rankingPosition;
+
     private Integer strength;
 
     private Integer speed;

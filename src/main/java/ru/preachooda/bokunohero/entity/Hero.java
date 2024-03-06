@@ -40,36 +40,36 @@ public class Hero extends BaseEntity {
     private Tier skillByQuirk = Tier.F;
 
     @NotNull
-    @Column(name = "ranking_position")
+    @Column(name = "ranking_position", unique = true)
     private Integer rankingPosition = -1;
 
     @NotNull
-    @Min(0)
-    @Max(5)
+    @Min(1)
+    @Max(6)
     @Column(name = "strength")
     private Integer strength;
 
     @NotNull
-    @Min(0)
-    @Max(5)
+    @Min(1)
+    @Max(6)
     @Column(name = "speed")
     private Integer speed;
 
     @NotNull
-    @Min(0)
-    @Max(5)
+    @Min(1)
+    @Max(6)
     @Column(name = "technique")
     private Integer technique;
 
     @NotNull
-    @Min(0)
-    @Max(5)
+    @Min(1)
+    @Max(6)
     @Column(name = "intelligence")
     private Integer intelligence;
 
     @NotNull
-    @Min(0)
-    @Max(5)
+    @Min(1)
+    @Max(6)
     @Column(name = "cooperation")
     private Integer cooperation;
 
