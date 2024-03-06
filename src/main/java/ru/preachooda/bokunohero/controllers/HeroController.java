@@ -51,7 +51,7 @@ public class HeroController extends BaseEntityController<Hero, HeroDto> {
         if (heroList.size() > 3) {
             result = heroList.stream()
                     .sorted(Comparator.comparing(Hero::getRankingPosition))
-//                    .limit(3)
+                    .limit(3)
                     .collect(Collectors.toList());
         } else {
             result = new ArrayList<>(heroList);
